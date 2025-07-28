@@ -1,6 +1,6 @@
-# Mon Application Qt
+# SAI
 
-Une application Qt moderne avec interface graphique et base de données intégrée.
+Solution pour une gestion fluide des tâche de ce gros flemmard de Sam
 
 ## Fonctionnalités
 
