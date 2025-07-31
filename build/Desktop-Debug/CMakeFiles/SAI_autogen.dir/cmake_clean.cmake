@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/SAI_autogen"
-  "SAI_autogen/include/ui_mainwindow.h"
+  "SAI_autogen/include/src/ui_mainwindow.h"
   "SAI_autogen/mocs_compilation.cpp"
   "SAI_autogen/timestamp"
 )

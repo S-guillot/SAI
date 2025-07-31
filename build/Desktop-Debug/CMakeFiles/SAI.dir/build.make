@@ -90,46 +90,46 @@ CMakeFiles/SAI.dir/SAI_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SAI.dir/SAI_autogen/mocs_compilation.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sam/Documents/SAI/build/Desktop-Debug/SAI_autogen/mocs_compilation.cpp -o CMakeFiles/SAI.dir/SAI_autogen/mocs_compilation.cpp.s
 
-CMakeFiles/SAI.dir/main.cpp.o: CMakeFiles/SAI.dir/flags.make
-CMakeFiles/SAI.dir/main.cpp.o: /home/sam/Documents/SAI/main.cpp
-CMakeFiles/SAI.dir/main.cpp.o: CMakeFiles/SAI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sam/Documents/SAI/build/Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SAI.dir/main.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SAI.dir/main.cpp.o -MF CMakeFiles/SAI.dir/main.cpp.o.d -o CMakeFiles/SAI.dir/main.cpp.o -c /home/sam/Documents/SAI/main.cpp
+CMakeFiles/SAI.dir/src/main.cpp.o: CMakeFiles/SAI.dir/flags.make
+CMakeFiles/SAI.dir/src/main.cpp.o: /home/sam/Documents/SAI/src/main.cpp
+CMakeFiles/SAI.dir/src/main.cpp.o: CMakeFiles/SAI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sam/Documents/SAI/build/Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SAI.dir/src/main.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SAI.dir/src/main.cpp.o -MF CMakeFiles/SAI.dir/src/main.cpp.o.d -o CMakeFiles/SAI.dir/src/main.cpp.o -c /home/sam/Documents/SAI/src/main.cpp
 
-CMakeFiles/SAI.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SAI.dir/main.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sam/Documents/SAI/main.cpp > CMakeFiles/SAI.dir/main.cpp.i
+CMakeFiles/SAI.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SAI.dir/src/main.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sam/Documents/SAI/src/main.cpp > CMakeFiles/SAI.dir/src/main.cpp.i
 
-CMakeFiles/SAI.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SAI.dir/main.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sam/Documents/SAI/main.cpp -o CMakeFiles/SAI.dir/main.cpp.s
+CMakeFiles/SAI.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SAI.dir/src/main.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sam/Documents/SAI/src/main.cpp -o CMakeFiles/SAI.dir/src/main.cpp.s
 
-CMakeFiles/SAI.dir/mainwindow.cpp.o: CMakeFiles/SAI.dir/flags.make
-CMakeFiles/SAI.dir/mainwindow.cpp.o: /home/sam/Documents/SAI/mainwindow.cpp
-CMakeFiles/SAI.dir/mainwindow.cpp.o: CMakeFiles/SAI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sam/Documents/SAI/build/Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SAI.dir/mainwindow.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SAI.dir/mainwindow.cpp.o -MF CMakeFiles/SAI.dir/mainwindow.cpp.o.d -o CMakeFiles/SAI.dir/mainwindow.cpp.o -c /home/sam/Documents/SAI/mainwindow.cpp
+CMakeFiles/SAI.dir/src/mainwindow.cpp.o: CMakeFiles/SAI.dir/flags.make
+CMakeFiles/SAI.dir/src/mainwindow.cpp.o: /home/sam/Documents/SAI/src/mainwindow.cpp
+CMakeFiles/SAI.dir/src/mainwindow.cpp.o: CMakeFiles/SAI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sam/Documents/SAI/build/Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SAI.dir/src/mainwindow.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SAI.dir/src/mainwindow.cpp.o -MF CMakeFiles/SAI.dir/src/mainwindow.cpp.o.d -o CMakeFiles/SAI.dir/src/mainwindow.cpp.o -c /home/sam/Documents/SAI/src/mainwindow.cpp
 
-CMakeFiles/SAI.dir/mainwindow.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SAI.dir/mainwindow.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sam/Documents/SAI/mainwindow.cpp > CMakeFiles/SAI.dir/mainwindow.cpp.i
+CMakeFiles/SAI.dir/src/mainwindow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SAI.dir/src/mainwindow.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sam/Documents/SAI/src/mainwindow.cpp > CMakeFiles/SAI.dir/src/mainwindow.cpp.i
 
-CMakeFiles/SAI.dir/mainwindow.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SAI.dir/mainwindow.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sam/Documents/SAI/mainwindow.cpp -o CMakeFiles/SAI.dir/mainwindow.cpp.s
+CMakeFiles/SAI.dir/src/mainwindow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SAI.dir/src/mainwindow.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sam/Documents/SAI/src/mainwindow.cpp -o CMakeFiles/SAI.dir/src/mainwindow.cpp.s
 
 # Object files for target SAI
 SAI_OBJECTS = \
 "CMakeFiles/SAI.dir/SAI_autogen/mocs_compilation.cpp.o" \
-"CMakeFiles/SAI.dir/main.cpp.o" \
-"CMakeFiles/SAI.dir/mainwindow.cpp.o"
+"CMakeFiles/SAI.dir/src/main.cpp.o" \
+"CMakeFiles/SAI.dir/src/mainwindow.cpp.o"
 
 # External object files for target SAI
 SAI_EXTERNAL_OBJECTS =
 
 SAI: CMakeFiles/SAI.dir/SAI_autogen/mocs_compilation.cpp.o
-SAI: CMakeFiles/SAI.dir/main.cpp.o
-SAI: CMakeFiles/SAI.dir/mainwindow.cpp.o
+SAI: CMakeFiles/SAI.dir/src/main.cpp.o
+SAI: CMakeFiles/SAI.dir/src/mainwindow.cpp.o
 SAI: CMakeFiles/SAI.dir/build.make
 SAI: /home/sam/Qt/6.9.1/gcc_64/lib/libQt6Widgets.so.6.9.1
 SAI: /home/sam/Qt/6.9.1/gcc_64/lib/libQt6Gui.so.6.9.1

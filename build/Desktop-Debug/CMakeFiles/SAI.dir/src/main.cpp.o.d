@@ -1,8 +1,5 @@
-CMakeFiles/SAI.dir/SAI_autogen/mocs_compilation.cpp.o: \
- /home/sam/Documents/SAI/build/Desktop-Debug/SAI_autogen/mocs_compilation.cpp \
- /usr/include/stdc-predef.h \
- /home/sam/Documents/SAI/build/Desktop-Debug/SAI_autogen/UVLADIE3JM/moc_mainwindow.cpp \
- /home/sam/Documents/SAI/build/Desktop-Debug/SAI_autogen/UVLADIE3JM/../../../../src/mainwindow.h \
+CMakeFiles/SAI.dir/src/main.cpp.o: /home/sam/Documents/SAI/src/main.cpp \
+ /usr/include/stdc-predef.h /home/sam/Documents/SAI/src/mainwindow.h \
  /home/sam/Qt/6.9.1/gcc_64/include/QtWidgets/QMainWindow \
  /home/sam/Qt/6.9.1/gcc_64/include/QtWidgets/qmainwindow.h \
  /home/sam/Qt/6.9.1/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -389,7 +386,18 @@ CMakeFiles/SAI.dir/SAI_autogen/mocs_compilation.cpp.o: \
  /home/sam/Qt/6.9.1/gcc_64/include/QtGui/qcursor.h \
  /home/sam/Qt/6.9.1/gcc_64/include/QtGui/qbitmap.h \
  /home/sam/Qt/6.9.1/gcc_64/include/QtWidgets/qtabwidget.h \
- /home/sam/Qt/6.9.1/gcc_64/include/QtCore/qtmochelpers.h \
- /home/sam/Qt/6.9.1/gcc_64/include/QtCore/qtmocconstants.h \
- /home/sam/Qt/6.9.1/gcc_64/include/QtCore/q20algorithm.h \
- /home/sam/Qt/6.9.1/gcc_64/include/QtCore/q23type_traits.h
+ /home/sam/Qt/6.9.1/gcc_64/include/QtWidgets/QApplication \
+ /home/sam/Qt/6.9.1/gcc_64/include/QtWidgets/qapplication.h \
+ /home/sam/Qt/6.9.1/gcc_64/include/QtCore/qcoreapplication.h \
+ /home/sam/Qt/6.9.1/gcc_64/include/QtCore/qcoreevent.h \
+ /home/sam/Qt/6.9.1/gcc_64/include/QtCore/qbasictimer.h \
+ /home/sam/Qt/6.9.1/gcc_64/include/QtCore/qabstracteventdispatcher.h \
+ /home/sam/Qt/6.9.1/gcc_64/include/QtCore/qeventloop.h \
+ /home/sam/Qt/6.9.1/gcc_64/include/QtCore/qdeadlinetimer.h \
+ /home/sam/Qt/6.9.1/gcc_64/include/QtCore/qelapsedtimer.h \
+ /home/sam/Qt/6.9.1/gcc_64/include/QtCore/qnativeinterface.h \
+ /home/sam/Qt/6.9.1/gcc_64/include/QtCore/qcoreapplication_platform.h \
+ /home/sam/Qt/6.9.1/gcc_64/include/QtGui/qguiapplication.h \
+ /home/sam/Qt/6.9.1/gcc_64/include/QtGui/qinputmethod.h \
+ /home/sam/Qt/6.9.1/gcc_64/include/QtCore/qlocale.h \
+ /home/sam/Qt/6.9.1/gcc_64/include/QtGui/qguiapplication_platform.h

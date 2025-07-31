@@ -68,8 +68,8 @@ include CMakeFiles/SAI_autogen_timestamp_deps.dir/progress.make
 
 CMakeFiles/SAI_autogen_timestamp_deps: /home/sam/Qt/6.9.1/gcc_64/libexec/uic
 CMakeFiles/SAI_autogen_timestamp_deps: /home/sam/Qt/6.9.1/gcc_64/libexec/moc
-CMakeFiles/SAI_autogen_timestamp_deps: /home/sam/Qt/6.9.1/gcc_64/lib/libQt6Core.so.6.9.1
 CMakeFiles/SAI_autogen_timestamp_deps: /home/sam/Qt/6.9.1/gcc_64/lib/libQt6Widgets.so.6.9.1
+CMakeFiles/SAI_autogen_timestamp_deps: /home/sam/Qt/6.9.1/gcc_64/lib/libQt6Core.so.6.9.1
 
 SAI_autogen_timestamp_deps: CMakeFiles/SAI_autogen_timestamp_deps
 SAI_autogen_timestamp_deps: CMakeFiles/SAI_autogen_timestamp_deps.dir/build.make

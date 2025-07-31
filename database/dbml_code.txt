@@ -1,0 +1,97 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table User {
+  u_id integer [primary key]
+  u_name varchar
+  u_last_connexion datetime
+  u_productivity_index double
+  u_archived integer [default: 0]
+}
+
+Table Task {
+  t_id integer [primary key]
+  t_name varchar [unique]
+  t_creation_date datetime [not null]
+  t_description varchar 
+  t_priority integer [not null]
+  t_step_date datetime 
+  t_p_id integer [unique]
+  t_statut integer [default: 0]
+  t_likability_index double
+  t_time_passed_on double
+  t_archived integer [default: 0]
+  t_last_targeted datetime
+  t_c_id integer
+  t_estimated_time double
+  redondant integer [default: 0]
+}
+
+Table Project {
+  p_id integer
+  p_name varchar [unique]
+  p_creation_date dapetime
+  p_description varchar
+  p_priority integer [not null]
+  p_step_date datetime
+  p_statut integer [default: 0]
+  p_likability_index double
+  p_time_passed_on double
+  p_archived integer [default: 0]
+  p_last_targeted datetime
+  p_c_id integer
+  p_estimated_time double
+}
+
+Table Category {
+  c_id integer [primary key]
+  c_name varchar
+  c_color varchar [unique, not null]
+  c_priority integer [not null]
+  c_archived integer [default: 0]
+}
+
+Table Task_User {
+  u_id integer
+  t_id integer
+
+  indexes {
+    (u_id, t_id) [pk] // Clé primaire composite
+  }
+}
+
+Table Project_User {
+  u_id integer
+  p_id integer
+
+  indexes {
+    (u_id, p_id) [pk] // Clé primaire composite
+  }
+}
+
+Table Notification {
+  n_id integer [primary key]
+  n_message varchar [not null]
+  n_type varchar [not null]
+  n_u_id integer
+  n_importancy integer
+  n_archived integer [default: 0]
+}
+
+Table Productivity_periode {
+  pd_id integer [primary key]
+  pd_periode integer [not null]
+  pd_day integer [not null]
+  pd_productivity_index double [default: 1.0]
+}
+
+Ref Project_tasks: Task.t_p_id > Project.p_id // many-to-one
+Ref Task_user_asso: Task_User.t_id > Task.t_id
+Ref User_Task_asso: Task_User.u_id > User.u_id
+Ref Project_user_asso: Project_User.p_id > Project.p_id
+Ref User_Project_asso: Project_User.u_id > User.u_id
+Ref Notification_User_asso: Notification.n_u_id > User.u_id
+Ref Category_Task_asso: Task.t_c_id > Category.c_id
+Ref Category_Project_asso: Project.p_c_id > Category.c_id
+
+

@@ -10,8 +10,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "" "SAI_autogen/timestamp" "custom" "SAI_autogen/deps"
   "/home/sam/Documents/SAI/build/Desktop-Debug/SAI_autogen/mocs_compilation.cpp" "CMakeFiles/SAI.dir/SAI_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/SAI.dir/SAI_autogen/mocs_compilation.cpp.o.d"
-  "/home/sam/Documents/SAI/main.cpp" "CMakeFiles/SAI.dir/main.cpp.o" "gcc" "CMakeFiles/SAI.dir/main.cpp.o.d"
-  "/home/sam/Documents/SAI/mainwindow.cpp" "CMakeFiles/SAI.dir/mainwindow.cpp.o" "gcc" "CMakeFiles/SAI.dir/mainwindow.cpp.o.d"
+  "/home/sam/Documents/SAI/src/main.cpp" "CMakeFiles/SAI.dir/src/main.cpp.o" "gcc" "CMakeFiles/SAI.dir/src/main.cpp.o.d"
+  "/home/sam/Documents/SAI/src/mainwindow.cpp" "CMakeFiles/SAI.dir/src/mainwindow.cpp.o" "gcc" "CMakeFiles/SAI.dir/src/mainwindow.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
