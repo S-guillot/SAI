@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-37dce1b12734b44ad873.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "SAI",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "SAI::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SAI-0cd87386590b81e9fdd1.json",
+					"name" : "SAI",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SAI_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SAI_autogen-dcbacadc0a23f224d71e.json",
+					"name" : "SAI_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SAI_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SAI_autogen_timestamp_deps-e4cceef4e84a40c9fa79.json",
+					"name" : "SAI_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/sam/Documents/SAI/build/Desktop-Debug",
+		"source" : "/home/sam/Documents/SAI"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

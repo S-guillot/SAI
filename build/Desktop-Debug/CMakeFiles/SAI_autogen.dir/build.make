@@ -68,11 +68,11 @@ include CMakeFiles/SAI_autogen.dir/progress.make
 
 CMakeFiles/SAI_autogen: SAI_autogen/timestamp
 
-SAI_autogen/timestamp: /home/sam/Qt/6.9.1/gcc_64/libexec/moc
-SAI_autogen/timestamp: /home/sam/Qt/6.9.1/gcc_64/libexec/uic
+SAI_autogen/timestamp: /usr/lib/qt6/libexec/moc
+SAI_autogen/timestamp: /usr/lib/qt6/libexec/uic
 SAI_autogen/timestamp: CMakeFiles/SAI_autogen.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/sam/Documents/SAI/build/Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target SAI"
-	/usr/bin/cmake -E cmake_autogen /home/sam/Documents/SAI/build/Desktop-Debug/CMakeFiles/SAI_autogen.dir/AutogenInfo.json Debug
+	/usr/bin/cmake -E cmake_autogen /home/sam/Documents/SAI/build/Desktop-Debug/CMakeFiles/SAI_autogen.dir/AutogenInfo.json ""
 	/usr/bin/cmake -E touch /home/sam/Documents/SAI/build/Desktop-Debug/SAI_autogen/timestamp
 
 SAI_autogen: CMakeFiles/SAI_autogen

@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAI - Smart Assistant Interface</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 20px 30px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: white;
+        }
+
+        .avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 25px;
+            font-size: 20px;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .add-btn {
+            background: linear-gradient(45deg, #4f46e5, #7c3aed);
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+        }
+
+        .add-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+        }
+
+        .category-list, .project-list {
+            list-style: none;
+        }
+
+        .category-item, .project-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-item:hover, .project-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-1 { background: linear-gradient(45deg, #ff6b35, #f7931e); } /* Design - Orange vif */
+        .category-2 { background: linear-gradient(45deg, #4facfe, #00f2fe); } /* Développement - Bleu tech */
+        .category-3 { background: linear-gradient(45deg, #fa709a, #fee140); } /* Marketing - Rose-jaune */
+        .category-4 { background: linear-gradient(45deg, #a8edea, #fed6e3); } /* Recherche - Cyan-rose */
+        .category-5 { background: linear-gradient(45deg, #667eea, #764ba2); } /* Administration - Violet */
+        .category-6 { background: linear-gradient(45deg, #43e97b, #38f9d7); } /* Formation - Vert */
+
+        .category-text {
+            color: white;
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            margin-right: 20px; /* Plus d'espace entre le texte et les icônes */
+        }
+
+        .category-actions {
+            display: flex;
+            gap: 12px; /* Plus d'espace entre les icônes */
+        }
+
+        .action-btn {
+            width: 28px;
+            height: 28px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            font-size: 14px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .action-btn:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .action-btn svg {
+            width: 14px;
+            height: 14px;
+            fill: #2d3748;
+            drop-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Main Content */
+        .main-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+        }
+
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            gap: 40px;
+        }
+
+        .start-btn {
+            background: linear-gradient(45deg, #00c851, #007e33);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-size: 22px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 200, 81, 0.3);
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(0, 200, 81, 0.4);
+        }
+
+        .start-btn:active {
+            transform: translateY(0);
+        }
+
+        .pomodoro-control {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(102, 126, 234, 0.1);
+            padding: 20px 30px;
+            border-radius: 20px;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .method-label {
+            font-weight: 600;
+            color: #4f46e5;
+        }
+
+        .method-selector {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 8px 15px;
+            font-size: 16px;
+            color: #2d3748;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .method-selector:focus {
+            outline: none;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        /* Task Timeline - Stair Layout */
+        .task-timeline {
+            position: relative;
+            padding: 20px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 15px; /* Réduit encore l'espacement horizontal de 30px à 15px */
+            align-items: start;
+        }
+
+        .timeline-step {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-bottom: 10px; /* Encore moins d'espace entre les tâches */
+        }
+
+        .timeline-step:nth-child(1) { 
+            grid-column: 1;
+            margin-left: 0px;
+        }
+        .timeline-step:nth-child(2) { 
+            grid-column: 1;
+            margin-left: 40px; /* Réduit encore de 60px à 40px */
+        }
+        .timeline-step:nth-child(3) { 
+            grid-column: 1;
+            margin-left: 80px; /* Réduit encore de 120px à 80px */
+        }
+        .timeline-step:nth-child(4) { 
+            grid-column: 2;
+            grid-row: 1;
+            margin-left: 0px;
+            margin-top: 50px;
+        }
+        .timeline-step:nth-child(5) { 
+            grid-column: 2;
+            grid-row: 2;
+            margin-left: 40px; /* Réduit encore de 60px à 40px */
+            margin-top: 50px;
+        }
+        .timeline-step:nth-child(6) { 
+            grid-column: 2;
+            grid-row: 3;
+            margin-left: 80px; /* Réduit encore de 120px à 80px */
+            margin-top: 50px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #4f46e5, #7c3aed);
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 30px;
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+            max-width: 350px;
+        }
+
+        .task-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .task-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .task-card.task-a { 
+            border-left: 5px solid #ff6b35; 
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.18), rgba(247, 147, 30, 0.15));
+        }
+        .task-card.task-b { 
+            border-left: 5px solid #4facfe; 
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.18), rgba(0, 242, 254, 0.15));
+        }
+        .task-card.task-c { 
+            border-left: 5px solid #4facfe; 
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.18), rgba(0, 242, 254, 0.15));
+        }
+        .task-card.task-d { 
+            border-left: 5px solid #a8edea; 
+            background: linear-gradient(135deg, rgba(168, 237, 234, 0.18), rgba(254, 214, 227, 0.15));
+        }
+        .task-card.task-e { 
+            border-left: 5px solid #667eea; 
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.18), rgba(118, 75, 162, 0.15));
+        }
+        .task-card.task-f { 
+            border-left: 5px solid #43e97b; 
+            background: linear-gradient(135deg, rgba(67, 233, 123, 0.18), rgba(56, 249, 215, 0.15));
+        }
+
+        .task-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .priority-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ff4757;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .task-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            color: #64748b;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .timeline-connector {
+            display: none;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .task-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .task-card:nth-child(2) { animation-delay: 0.1s; }
+        .task-card:nth-child(3) { animation-delay: 0.2s; }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .container {
+                grid-template-columns: 280px 1fr;
+                gap: 20px;
+            }
+            
+            .task-timeline {
+                gap: 15px 10px; /* Réduit encore plus l'espacement horizontal en responsive */
+            }
+            
+            .timeline-step:nth-child(2) { margin-left: 30px; } /* Réduit encore de 40px à 30px */
+            .timeline-step:nth-child(3) { margin-left: 60px; } /* Réduit encore de 80px à 60px */
+            .timeline-step:nth-child(5) { margin-left: 30px; } /* Réduit encore de 40px à 30px */
+            .timeline-step:nth-child(6) { margin-left: 60px; } /* Réduit encore de 80px à 60px */
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+            
+            .sidebar {
+                position: static;
+            }
+            
+            .task-timeline {
+                grid-template-columns: 1fr;
+                gap: 15px; /* Réduit en mobile aussi */
+            }
+            
+            .timeline-step {
+                margin-left: 0 !important;
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">SAI</div>
+            <div class="user-info">
+                <span>Sam Guillot</span>
+                <div class="avatar">SG</div>
+            </div>
+        </header>
+
+        <aside class="sidebar">
+            <div>
+                <h2>
+                    Catégories
+                    <button class="add-btn">+</button>
+                </h2>
+                <ul class="category-list">
+                    <li class="category-item category-1">
+                        <span class="category-text">Développement</span>
+                        
+                    </li>
+                    <li class="category-item category-2">
+                        <span class="category-text">Design</span>
+                        
+                    </li>
+                    <li class="category-item category-3">
+                        <span class="category-text">Marketing</span>
+                        
+                    </li>
+                    <li class="category-item category-4">
+                        <span class="category-text">Recherche</span>
+                        
+                    </li>
+                    <li class="category-item category-5">
+                        <span class="category-text">Administration</span>
+                        
+                    </li>
+                    <li class="category-item category-6">
+                        <span class="category-text">Formation</span>
+                        
+                    </li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <h2>
+                    Projets
+                </h2>
+                <ul class="project-list">
+                    <li class="project-item" style="background: rgba(102, 126, 234, 0.1); color: #4f46e5; border-radius: 12px;">
+                        <span>Application SAI</span>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="content-header">
+                <button class="start-btn" onclick="startSession()">Commencer</button>
+                <div class="pomodoro-control">
+                    <span class="method-label">Méthode :</span>
+                    <select class="method-selector">
+                        <option>Pomodoro</option>
+                        <option>Time Blocking</option>
+                        <option>Deep Work</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="task-timeline">
+                <div class="timeline-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="task-card task-a">
+                            <div class="task-title">
+                                <div class="priority-indicator"></div>
+                                Conception Interface Utilisateur
+                            </div>
+                            <div class="task-meta">
+                                <div class="meta-item">Durée estimée : 2h</div>
+                                <div class="meta-item">Échéance : Aujourd'hui</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-connector"></div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="task-card task-b">
+                            <div class="task-title">
+                                Développement Backend API
+                            </div>
+                            <div class="task-meta">
+                                <div class="meta-item">Durée estimée : 3h</div>
+                                <div class="meta-item">Échéance : Demain</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-connector"></div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="task-card task-c">
+                            <div class="task-title">
+                                Tests & Optimisation
+                            </div>
+                            <div class="task-meta">
+                                <div class="meta-item">Durée estimée : 1h30</div>
+                                <div class="meta-item">Échéance : Cette semaine</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-connector"></div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <div class="task-card task-d">
+                            <div class="task-title">
+                                Recherche Utilisateur
+                            </div>
+                            <div class="task-meta">
+                                <div class="meta-item">Durée estimée : 2h30</div>
+                                <div class="meta-item">Échéance : Semaine prochaine</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-connector"></div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <div class="task-card task-e">
+                            <div class="task-title">
+                                Documentation Technique
+                            </div>
+                            <div class="task-meta">
+                                <div class="meta-item">Durée estimée : 1h</div>
+                                <div class="meta-item">Échéance : Fin du mois</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-connector"></div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <div class="task-card task-f">
+                            <div class="task-title">
+                                Formation Équipe
+                            </div>
+                            <div class="task-meta">
+                                <div class="meta-item">Durée estimée : 2h</div>
+                                <div class="meta-item">Échéance : Mois prochain</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function startSession() {
+            const button = document.querySelector('.start-btn');
+            button.textContent = '⏱️ Session en cours...';
+            button.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a24)';
+            
+            setTimeout(() => {
+                button.textContent = 'Commencer';
+                button.style.background = 'linear-gradient(45deg, #00c851, #007e33)';
+            }, 3000);
+        }
+
+        // Animation des cartes au scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        });
+
+        document.querySelectorAll('.task-card').forEach((card) => {
+            observer.observe(card);
+        });
+
+        // Interaction avec les catégories
+        document.querySelectorAll('.category-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.category-item').forEach(cat => cat.style.transform = 'translateX(0)');
+                item.style.transform = 'translateX(10px)';
+                item.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.15)';
+            });
+        });
+    </script>
+</body>
+</html>

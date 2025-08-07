@@ -85,6 +85,23 @@ Table Productivity_periode {
   pd_productivity_index double [default: 1.0]
 }
 
+Table Work_methode {
+  wm_id integer [primary key]
+  wm_name varchar
+  wm_user_compatibility_index double [default: 1.0]
+  wm_use_count integer
+  wm_archived integer [default: 0]
+}
+
+Table Freq_duration_management {
+  fm_id integer [primary key]
+  fm_pause_duration integer
+  fm_work_duration integer
+  fm_pause_frequency integer
+  fm_work_frequency integer
+  fm_wm_id integer
+}
+
 Ref Project_tasks: Task.t_p_id > Project.p_id // many-to-one
 Ref Task_user_asso: Task_User.t_id > Task.t_id
 Ref User_Task_asso: Task_User.u_id > User.u_id
@@ -93,5 +110,5 @@ Ref User_Project_asso: Project_User.u_id > User.u_id
 Ref Notification_User_asso: Notification.n_u_id > User.u_id
 Ref Category_Task_asso: Task.t_c_id > Category.c_id
 Ref Category_Project_asso: Project.p_c_id > Category.c_id
-
+Ref Freq_dur_management_Work_methode_asso: Freq_duration_management.fm_wm_id > Work_methode.wm_id
 

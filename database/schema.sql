@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS Category (
 );
 
 CREATE TABLE IF NOT EXISTS Project (
-    p_id SERIAL PRIMARY KEY,
+    p_id INTEGER PRIMARY KEY,
     p_name VARCHAR UNIQUE,
     p_creation_date TIMESTAMP,
     p_description VARCHAR,
@@ -88,6 +88,24 @@ CREATE TABLE IF NOT EXISTS Productivity_periode (
     pd_productivity_index DOUBLE PRECISION DEFAULT 1.0
 );
 
+CREATE TABLE IF NOT EXISTS Work_methode (
+    wm_id SERIAL PRIMARY KEY,
+    wm_name VARCHAR,
+    wm_user_compatibility_index DOUBLE PRECISION DEFAULT 1.0,
+    wm_use_count INTEGER,
+    wm_archived INTEGER DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS Freq_duration_management (
+    fm_id SERIAL PRIMARY KEY,
+    fm_pause_duration INTEGER,
+    fm_work_duration INTEGER,
+    fm_pause_frequency INTEGER,
+    fm_work_frequency INTEGER,
+    fm_wm_id INTEGER,
+    FOREIGN KEY (fm_wm_id) REFERENCES Work_methode(wm_id)
+);
+
 -- Create indexes for better performance
 CREATE INDEX IF NOT EXISTS idx_task_project ON Task(t_p_id);
 CREATE INDEX IF NOT EXISTS idx_task_category ON Task(t_c_id);
@@ -97,3 +115,4 @@ CREATE INDEX IF NOT EXISTS idx_task_user_task ON Task_User(t_id);
 CREATE INDEX IF NOT EXISTS idx_task_user_user ON Task_User(u_id);
 CREATE INDEX IF NOT EXISTS idx_project_user_project ON Project_User(p_id);
 CREATE INDEX IF NOT EXISTS idx_project_user_user ON Project_User(u_id);
+CREATE INDEX IF NOT EXISTS idx_freq_duration_work_methode ON Freq_duration_management(fm_wm_id);

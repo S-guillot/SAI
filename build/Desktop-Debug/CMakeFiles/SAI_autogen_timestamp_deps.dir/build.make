@@ -66,10 +66,11 @@ include CMakeFiles/SAI_autogen_timestamp_deps.dir/compiler_depend.make
 # Include the progress variables for this target.
 include CMakeFiles/SAI_autogen_timestamp_deps.dir/progress.make
 
-CMakeFiles/SAI_autogen_timestamp_deps: /home/sam/Qt/6.9.1/gcc_64/libexec/uic
-CMakeFiles/SAI_autogen_timestamp_deps: /home/sam/Qt/6.9.1/gcc_64/libexec/moc
-CMakeFiles/SAI_autogen_timestamp_deps: /home/sam/Qt/6.9.1/gcc_64/lib/libQt6Widgets.so.6.9.1
-CMakeFiles/SAI_autogen_timestamp_deps: /home/sam/Qt/6.9.1/gcc_64/lib/libQt6Core.so.6.9.1
+CMakeFiles/SAI_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Sql.so.6.4.2
+CMakeFiles/SAI_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
+CMakeFiles/SAI_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
+CMakeFiles/SAI_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.4.2
+CMakeFiles/SAI_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.4.2
 
 SAI_autogen_timestamp_deps: CMakeFiles/SAI_autogen_timestamp_deps
 SAI_autogen_timestamp_deps: CMakeFiles/SAI_autogen_timestamp_deps.dir/build.make
